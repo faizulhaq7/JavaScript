@@ -56,3 +56,5 @@ const newArr = [1,2,,3,4,5,[5,4,3,[5,7,3,0]]]
 
 console.log(Array.isArray("Hitesh"));
 console.log(typeof Array.from("Hitesh"));
+
+// Array basics done
