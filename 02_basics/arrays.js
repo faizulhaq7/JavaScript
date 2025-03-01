@@ -36,5 +36,23 @@ const Array1 = [0,1,2,3,4,5]
 // console.log(Array1)     // Original array is not affected (modified) since slice() returns a copy
 
 const Array2 = [6,7,8,9,10]
-console.log(Array2.splice(1, 3));       // elements from index 1 to 3 are deleted from the array
-console.log(Array2);      // [6,10] original array is manipulated
+// console.log(Array2.splice(1, 3));       // elements from index 1 to 3 are deleted from the array
+// console.log(Array2);      // [6,10] original array is manipulated
+
+const bollywood = ["Sidharth", "Varun", "SRK", "Salman"]
+const hollywood = ["Tom", "Chris", "Nial", "Hulk"]
+
+// bollywood.push(hollywood)
+// console.log(bollywood);
+// console.log(bollywood[4][1]);
+const merge = bollywood.concat(hollywood)
+// console.log(merge);
+
+const combined = [...bollywood, ...hollywood]
+// console.log(combined);
+
+const newArr = [1,2,,3,4,5,[5,4,3,[5,7,3,0]]]
+// console.log(newArr.flat(Infinity))
+
+console.log(Array.isArray("Hitesh"));
+console.log(typeof Array.from("Hitesh"));
