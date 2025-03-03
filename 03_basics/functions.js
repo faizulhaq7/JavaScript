@@ -33,4 +33,30 @@ function logInUser(username = "naveen026k"){        // default parameter is this
 
 logInUser("faizulhaq7") // this doesn't print (it just gives the reference)
 // console.log(logInUser("faizulhaq7"));       // to print we will use console.log()
-console.log(logInUser());       // undefined
+// console.log(logInUser());       // undefined
+
+// Rest Operator
+function totalCartValue(...num1){
+    return num1;
+}
+
+// console.log(totalCartValue(100,200,300,400,500))
+
+const user = {
+    username: "Faiz",
+    id: 12
+}
+
+function handleObject(anyObject){
+    console.log(`Username is ${anyObject.username} and id is ${anyObject.id}`)
+}
+
+// handleObject(user)
+
+const newArray = [100,200,300,400,500]
+
+function logSecondValue(reqNum){
+    console.log(reqNum[1])
+}
+
+logSecondValue(newArray)
