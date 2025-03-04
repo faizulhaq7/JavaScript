@@ -29,19 +29,23 @@ const user = {
 //     console.log(this.parhaaku)
 // }
 
-// const parhayi = () => {         // Arrow function
+// Arrow function
+
+// const parhayi = () => {
 //     let parhaaku = "Abhigyan"
 //     console.log(this.parhaaku)
 // }
 // parhayi()
 
 // Explicit return Arrow Function (return keyword is explicitly run)
+
 // const additionFunction = (num1, num2) => {
 //     return num1 + num2
 // }
 // console.log(additionFunction(4,6));     // 10
 
 // Implicit return Arrow Function (return keyword is implicitly run)
+
 // const additionFunction = (num1, num2) => num1 + num2
 // const additionFunction = (num1, num2) => (num1 + num2)
 // console.log(additionFunction(4,6));     // 10
