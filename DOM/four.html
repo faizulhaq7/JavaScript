@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Practice</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <ul class="language">
+        <li>C++</li>
+    </ul>
+</body>
+<script>
+
+    function addLang(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLang("Java")
+    addLang("Ruby")
+
+    // The optimized way for the above code is given below:
+
+    function addOptiLang(langName){
+        const li = document.createElement('li');
+        const addText = document.createTextNode(langName)
+        li.appendChild(addText)
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLang("Typescript")
+    addOptiLang("Rust")
+
+    // Edit 1st way
+    const secondLang = document.querySelector("li:nth-child(2)")
+    secondLang.innerHTML = "C#"
+    
+    // Edit 2nd way
+    const newLi = document.createElement('li')
+    newLi.textContent = "Kotlin"
+    secondLang.replaceWith(newLi)
+
+    // Edit 3rd way
+    const firstLang = document.querySelector('li:first-child')
+    firstLang.outerHTML = "<li>C</li>"
+
+    // Remove 
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+
+    // Final Output
+    // C
+    // Kotlin
+    // Ruby
+    // Typescript
+</script>
+</html>
