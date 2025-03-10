@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+</head>
+<body style="background-color: black; color: white; font-size: large;">
+    <div class="parent">
+        <!-- THIS IS A COMMENT -->
+        <div class="days">Monday</div>
+        <div class="days">Tuesday</div>
+        <div class="days">Wednesday</div>
+        <div class="days">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent');
+    // console.log(parent);
+    // console.log(parent.children);       // gives HTMLCollection
+    // console.log(parent.children[1].innerHTML);       // Tuesday
+    
+    // for (let i = 0; i < parent.children.length; i++) {
+    //     console.log(parent.children[i].innerHTML);      // prints days
+    // }
+
+    // Changing the styling
+    parent.children[0].style.color = "gold";
+    parent.children[1].style.color = "aqua";
+    parent.children[2].style.color = "beige";
+    parent.children[3].style.color = "lightgreen";
+
+    // console.log(parent.firstElementChild.innerHTML);      // Monday
+    // console.log(parent.lastElementChild.innerHTML);      // Thursday
+    
+    const dayOne = document.querySelector('.days')        // .innerHTML - Monday (querySelector gives the first element)
+    // console.log(dayOne.innerText);
+    // console.log(dayOne.parentElement.innerText);
+    // console.log(dayOne.nextElementSibling.innerText);       // Monday ka bhai Tuesday
+    // console.log(dayOne.nextElementSibling.nextElementSibling.innerText);    // Tuesday ka bhai Wednesday
+
+    console.log("Nodes:", parent.childNodes);     // It's a complex tree structure [IMPORTANT]
+    
+</script>
+</html>
