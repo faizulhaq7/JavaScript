@@ -1,6 +1,6 @@
 ## Projects related to DOM
 
-### Solution code for Project 1
+### Solution code for Project 1 - Color Changer
 
 ```javascript
 const buttons = document.querySelectorAll('.button')
@@ -27,7 +27,7 @@ buttons.forEach(function (button){
 });
 ```
 
-### Solution code for Project 2
+### Solution code for Project 2 - BMI Calculator
 
 ```javascript
 const button = document.querySelector('button');
@@ -68,4 +68,15 @@ button.addEventListener('click', (event) => {
 
   // console.log(bmiCal)
 });
+```
+
+### Solution code for project 3 - Digital Clock
+```javascript
+const clock = document.getElementById('clock')
+
+setInterval(function(){
+  let date = new Date();
+  // console.log(date.toLocaleTimeString()) // printing on the console after every 1000ms (1s)
+  clock.innerHTML = (date.toLocaleTimeString());
+}, 1000);
 ```
