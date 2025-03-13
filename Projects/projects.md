@@ -70,7 +70,7 @@ button.addEventListener('click', (event) => {
 });
 ```
 
-### Solution code for project 3 - Digital Clock
+### Solution code for Project 3 - Digital Clock
 ```javascript
 const clock = document.getElementById('clock')
 
@@ -79,4 +79,62 @@ setInterval(function(){
   // console.log(date.toLocaleTimeString()) // printing on the console after every 1000ms (1s)
   clock.innerHTML = (date.toLocaleTimeString());
 }, 1000);
+```
+
+### Solution Code for Project 4 - Guess the Number
+
+```javascript
+const randomNumber = parseInt(Math.random() * 100 + 1);
+
+const submit = document.querySelector('#subt');
+const userInput = document.querySelector('#guessField');
+const guesses = document.querySelector('.guesses');
+const remaining = document.querySelector('.lastResult');
+const feedback = document.querySelector('.lowOrHi');
+
+let userGuessesArray = [];
+let guessesLeft = 10;
+
+submit.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  let userGuess = parseInt(userInput.value);
+
+  if (!isNaN(userGuess) && userGuess > 0 && userGuess <= 100) {
+    if (guessesLeft > 0) {
+      userGuessesArray.push(userGuess);
+      guesses.innerText = `${userGuessesArray.join(', ')}`;
+      guessesLeft--;
+      remaining.innerText = guessesLeft;
+
+      console.log(`Guesses left: ${guessesLeft}`);
+
+      if (userGuess === randomNumber) {
+        feedback.innerText = `🎉 Congratulations! ${userGuess} is correct!`;
+        feedback.style.color = 'green';
+        userInput.disabled = true;
+        submit.disabled = true;
+      } else if (userGuess > randomNumber) {
+        feedback.innerText = '⬇️ Too high! Try a smaller number.';
+        feedback.style.color = 'red';
+      } else {
+        feedback.innerText = '⬆️ Too low! Try a bigger number.';
+        feedback.style.color = 'red';
+      }
+
+      console.log(`Random number was: ${randomNumber}`);
+
+      if (guessesLeft === 0 && userGuess !== randomNumber) {
+        feedback.innerText = `😢 No guesses left! The correct number was ${randomNumber}.`;
+        feedback.style.color = 'orange';
+        userInput.disabled = true;
+        submit.disabled = true;
+      }
+    } else {
+      alert('No more guesses left');
+    }
+  } else {
+    alert('Enter a valid number between 1 to 100');
+  }
+});
 ```
