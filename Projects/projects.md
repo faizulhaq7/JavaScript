@@ -138,3 +138,45 @@ submit.addEventListener('click', (event) => {
   }
 });
 ```
+
+### Solution Code for Project 6 - Unlimited Colors
+```javascript
+// Generating a random color
+const randomColor = function () {
+  const hexCode = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += hexCode[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+// Another way of doing the same thing
+
+// const randomColor = () => {
+//   return `#${(Math.floor(Math.random()*16777215)).toString(16).padStart(6, '0')}`;
+// }
+
+// Function to change the bg-color in body
+const changeBgColor = function () {
+  document.body.style.backgroundColor = randomColor();
+};
+
+// console.log(randomColor());
+
+
+let intervalId;
+
+// Event Listener for Start button
+document.getElementById('start').addEventListener('click', () => {
+  if (intervalId == null) {
+    intervalId = setInterval(changeBgColor, 1000);
+  }
+});
+
+// Event Listener for Stop button
+document.getElementById('stop').addEventListener('click', () => {
+  clearInterval(intervalId);
+  intervalId = null;
+});
+```
