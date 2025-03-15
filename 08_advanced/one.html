@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Practice</title>
+</head>
+<body style="background-color: #212121; color: beige;">
+    <!-- 0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete. -->
+
+    <div id="profile"; style="text-align: center; padding: 20px; background: #333; border-radius: 10px; width: 300px; margin: auto;">Profile Card</div>
+
+</body>
+
+<script>
+
+    const requestUrl = 'https://api.github.com/users/faizulhaq7'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl);
+    xhr.onreadystatechange = function() {
+        // console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText);
+            // console.log(typeof data);        // object
+            console.log(data.avatar_url);
+            console.log(data.name);
+            console.log(`Followers: ${data.followers}`);
+
+            let profileCard = document.getElementById('profile')
+            profileCard.innerHTML = `
+                <img src = "${data.avatar_url}; style = "height = 250px"; alt="Profile Pic";></img>
+                <h2>Name: ${data.name}</h2>
+                <h3>Followers: ${data.followers}</h3>
+            `;
+        }
+    }
+
+    xhr.send();
+</script>
+</html>
